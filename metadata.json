@@ -1,0 +1,6 @@
+{
+  "name": "EduNexus — Next-Generation School Management Ecosystem",
+  "description": "Intelligent, comprehensive school management platform for Dubai private schools featuring role-tailored portals, admissions pipeline, academics, finance, safeguarding, and KHDA compliance.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

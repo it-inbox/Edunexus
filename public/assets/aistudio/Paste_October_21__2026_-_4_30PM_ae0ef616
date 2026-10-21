@@ -1,0 +1,2230 @@
+# WORLD-CLASS SCHOOL MANAGEMENT SYSTEM — COMPLETE MVP BUILD PROMPT
+
+---
+
+## PROJECT IDENTITY
+
+**Product Name:** EduNexus — Next-Generation School Management Ecosystem
+**Client:** Premium private school group in Dubai, UAE
+**Ambition:** Build the most intelligent, beautiful, and comprehensive school management platform in the Middle East — a product that makes iSAMS, PowerSchool, and ManageBac feel outdated the moment a user sees our first screen.
+**Tech Stack:** React 18+ with TypeScript, Next.js 14+ (App Router), Tailwind CSS, Framer Motion, Recharts/Nivo for data visualization, Lucide icons, date-fns, and Zustand for state management. All in a single comprehensive application.
+
+---
+
+## PART 1 — DESIGN SYSTEM AND VISUAL IDENTITY
+
+### 1.1 Design Philosophy
+
+This is NOT a generic school admin panel. This is a premium enterprise SaaS product that communicates trust, intelligence, and innovation from the first pixel. Study the design quality of Linear, Vercel, Stripe Dashboard, Notion, and Mercury — then apply that level of craft to education.
+
+Every screen must feel intentional. No default Tailwind components without customization. No generic card layouts. No amateur spacing. No inconsistent typography. The product must feel like it was designed by a world-class design team at a top-tier SaaS company.
+
+### 1.2 Color System
+
+```
+/* === BRAND COLORS === */
+--brand-50: #EEF2FF;      /* Lightest tint — backgrounds, hover states */
+--brand-100: #E0E7FF;     /* Light tint — selected states, badges */
+--brand-200: #C7D2FE;     /* Borders on active elements */
+--brand-300: #A5B4FC;     /* Secondary buttons, progress bars */
+--brand-400: #818CF8;     /* Icons, links on dark backgrounds */
+--brand-500: #6366F1;     /* PRIMARY BRAND — buttons, active tabs, key accents */
+--brand-600: #4F46E5;     /* Primary button hover */
+--brand-700: #4338CA;     /* Primary button pressed */
+--brand-800: #3730A3;     /* Dark accents */
+--brand-900: #312E81;     /* Darkest brand — rarely used */
+
+/* === NEUTRAL PALETTE === */
+--gray-25: #FCFCFD;       /* Page background */
+--gray-50: #F9FAFB;       /* Card backgrounds, sidebar background */
+--gray-100: #F3F4F6;      /* Dividers, table stripes */
+--gray-200: #E5E7EB;      /* Borders, input borders */
+--gray-300: #D1D5DB;      /* Disabled text, placeholder icons */
+--gray-400: #9CA3AF;      /* Placeholder text, muted icons */
+--gray-500: #6B7280;      /* Secondary text, labels */
+--gray-600: #4B5563;      /* Body text */
+--gray-700: #374151;      /* Headings */
+--gray-800: #1F2937;      /* Primary text */
+--gray-900: #111827;      /* Titles, high emphasis text */
+--gray-950: #030712;      /* Maximum contrast */
+
+/* === SEMANTIC COLORS === */
+--success-50: #F0FDF4;    --success-500: #22C55E;    --success-700: #15803D;
+--warning-50: #FFFBEB;    --warning-500: #F59E0B;    --warning-700: #B45309;
+--error-50: #FEF2F2;      --error-500: #EF4444;      --error-700: #B91C1C;
+--info-50: #EFF6FF;        --info-500: #3B82F6;       --info-700: #1D4ED8;
+
+/* === ACCENT PALETTE (for charts, avatars, tags, categories) === */
+--accent-violet: #8B5CF6;
+--accent-pink: #EC4899;
+--accent-cyan: #06B6D4;
+--accent-amber: #F59E0B;
+--accent-emerald: #10B981;
+--accent-rose: #F43F5E;
+--accent-sky: #0EA5E9;
+--accent-orange: #F97316;
+
+/* === GRADIENT TOKENS === */
+--gradient-brand: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #A78BFA 100%);
+--gradient-success: linear-gradient(135deg, #22C55E 0%, #10B981 100%);
+--gradient-warm: linear-gradient(135deg, #F59E0B 0%, #F97316 100%);
+--gradient-ocean: linear-gradient(135deg, #3B82F6 0%, #06B6D4 100%);
+--gradient-sunset: linear-gradient(135deg, #EC4899 0%, #F43F5E 100%);
+--gradient-dark: linear-gradient(135deg, #1F2937 0%, #111827 100%);
+--gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+
+/* === SURFACE AND ELEVATION === */
+--surface-primary: #FFFFFF;
+--surface-secondary: #F9FAFB;
+--surface-tertiary: #F3F4F6;
+--surface-elevated: #FFFFFF;
+--surface-overlay: rgba(0, 0, 0, 0.5);
+
+--shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+--shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+--shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+--shadow-brand: 0 4px 14px rgba(99, 102, 241, 0.25);
+--shadow-glow: 0 0 20px rgba(99, 102, 241, 0.15);
+```
+
+### 1.3 Typography System
+
+```
+/* Font Stack */
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+
+/* For Arabic: */
+font-family: 'IBM Plex Sans Arabic', 'Inter', system-ui, sans-serif;
+
+/* Monospace (for IDs, codes, data): */
+font-family: 'JetBrains Mono', 'Fira Code', monospace;
+
+/* === TYPE SCALE === */
+--text-xs:    0.75rem / 1rem;       /* 12px — captions, badges, timestamps */
+--text-sm:    0.875rem / 1.25rem;   /* 14px — secondary text, table cells, labels */
+--text-base:  1rem / 1.5rem;        /* 16px — body text, descriptions */
+--text-lg:    1.125rem / 1.75rem;   /* 18px — card titles, section headers */
+--text-xl:    1.25rem / 1.75rem;    /* 20px — page section titles */
+--text-2xl:   1.5rem / 2rem;        /* 24px — page titles */
+--text-3xl:   1.875rem / 2.25rem;   /* 30px — dashboard welcome, hero numbers */
+--text-4xl:   2.25rem / 2.5rem;     /* 36px — large stat numbers */
+--text-5xl:   3rem / 1;             /* 48px — hero statistics on dashboards */
+
+/* === FONT WEIGHTS === */
+--font-normal: 400;    /* Body text */
+--font-medium: 500;    /* Labels, table headers, nav items */
+--font-semibold: 600;  /* Card titles, section headers, buttons */
+--font-bold: 700;      /* Page titles, stat numbers, emphasis */
+
+/* === LETTER SPACING === */
+--tracking-tight: -0.025em;   /* Headings */
+--tracking-normal: 0;          /* Body */
+--tracking-wide: 0.025em;      /* Overline labels, badges, all-caps text */
+```
+
+### 1.4 Spacing and Layout System
+
+```
+/* === SPACING SCALE (use consistently) === */
+--space-0: 0;
+--space-0.5: 0.125rem;   /* 2px */
+--space-1: 0.25rem;      /* 4px */
+--space-1.5: 0.375rem;   /* 6px */
+--space-2: 0.5rem;       /* 8px */
+--space-3: 0.75rem;      /* 12px */
+--space-4: 1rem;         /* 16px */
+--space-5: 1.25rem;      /* 20px */
+--space-6: 1.5rem;       /* 24px */
+--space-8: 2rem;         /* 32px */
+--space-10: 2.5rem;      /* 40px */
+--space-12: 3rem;        /* 48px */
+--space-16: 4rem;        /* 64px */
+--space-20: 5rem;        /* 80px */
+
+/* === BORDER RADIUS === */
+--radius-sm: 0.375rem;    /* 6px — small badges, chips */
+--radius-md: 0.5rem;      /* 8px — buttons, inputs */
+--radius-lg: 0.75rem;     /* 12px — cards, modals */
+--radius-xl: 1rem;        /* 16px — large cards, featured sections */
+--radius-2xl: 1.5rem;     /* 24px — hero cards, onboarding */
+--radius-full: 9999px;    /* Avatars, circular buttons, pills */
+
+/* === LAYOUT === */
+--sidebar-width: 260px;
+--sidebar-collapsed: 72px;
+--header-height: 64px;
+--content-max-width: 1440px;
+--content-padding: 32px;
+--card-padding: 24px;
+--table-row-height: 52px;
+```
+
+### 1.5 Animation and Motion System
+
+```
+/* === EASING CURVES === */
+--ease-default: cubic-bezier(0.4, 0, 0.2, 1);      /* General transitions */
+--ease-in: cubic-bezier(0.4, 0, 1, 1);               /* Elements exiting */
+--ease-out: cubic-bezier(0, 0, 0.2, 1);               /* Elements entering */
+--ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);     /* Playful bounces */
+--ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);      /* Smooth, premium feel */
+
+/* === DURATION === */
+--duration-instant: 75ms;      /* Micro-interactions: checkbox, toggle */
+--duration-fast: 150ms;        /* Hover states, button feedback */
+--duration-normal: 200ms;      /* Dropdowns, tooltips */
+--duration-moderate: 300ms;    /* Modals, drawers, accordions */
+--duration-slow: 500ms;        /* Page transitions, large layout shifts */
+--duration-slower: 700ms;      /* Complex animations, chart renders */
+
+/* === ANIMATION PATTERNS (use Framer Motion) === */
+
+// Page enter
+{ initial: { opacity: 0, y: 20 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.4, ease: [0.25, 0.1, 0.25, 1] } }
+
+// Stagger children (for card grids, list items)
+{ parent: { staggerChildren: 0.06, delayChildren: 0.1 }, child: { initial: { opacity: 0, y: 12 }, animate: { opacity: 1, y: 0 } } }
+
+// Stat number count-up (dashboard KPIs — animate from 0 to value)
+Use Framer Motion's useMotionValue + useTransform + animate to count numbers from 0
+
+// Sidebar expand/collapse
+{ layout: true, transition: { type: "spring", stiffness: 300, damping: 30 } }
+
+// Modal enter
+{ initial: { opacity: 0, scale: 0.95, y: 10 }, animate: { opacity: 1, scale: 1, y: 0 }, transition: { duration: 0.2, ease: [0, 0, 0.2, 1] } }
+
+// Toast notification slide-in
+{ initial: { opacity: 0, x: 100 }, animate: { opacity: 1, x: 0 }, exit: { opacity: 0, x: 100 } }
+
+// Chart data entrance
+{ initial: { pathLength: 0 }, animate: { pathLength: 1 }, transition: { duration: 1.2, ease: "easeInOut" } }
+
+// Skeleton loading pulse
+{ animate: { opacity: [0.5, 1, 0.5] }, transition: { duration: 1.5, repeat: Infinity, ease: "easeInOut" } }
+
+// Hover card lift
+{ whileHover: { y: -2, shadow: "var(--shadow-lg)" }, transition: { duration: 0.2 } }
+
+// Button press
+{ whileTap: { scale: 0.98 }, transition: { duration: 0.1 } }
+```
+
+### 1.6 Component Design Standards
+
+Every component must follow these patterns:
+
+**Buttons:**
+- Primary: Brand-500 bg, white text, brand shadow on hover, scale(0.98) on press
+- Secondary: White bg, gray-200 border, gray-700 text, gray-50 bg on hover
+- Ghost: Transparent bg, brand-500 text, brand-50 bg on hover
+- Destructive: Error-500 bg, white text
+- All buttons: 40px height (default), 36px (small), 44px (large), radius-md, font-medium, px-4
+- Loading state: Spinner icon replacing text, reduced opacity
+- Disabled: opacity-50, cursor-not-allowed, no hover effects
+
+**Input Fields:**
+- 40px height, radius-md, gray-200 border, 1px
+- Focus: brand-500 border (2px), brand-50 ring (3px offset)
+- Error: error-500 border, error-50 background, error message below in text-sm
+- Label above in text-sm font-medium gray-700, required asterisk in error-500
+- Helper text in text-sm gray-500
+
+**Cards:**
+- White bg, radius-lg, shadow-sm, 1px gray-100 border
+- Hover: shadow-md, translateY(-2px) transition
+- Padding: 24px
+- Header: flex between title (text-lg semibold) and actions
+- Never stack more than 3 vertical content sections without visual separation
+
+**Tables:**
+- Header: gray-50 bg, text-xs uppercase tracking-wide font-semibold gray-500
+- Rows: 52px height, hover:gray-50 bg, border-b gray-100
+- Checkbox column: 48px wide
+- Action column: right-aligned, icon buttons only (not text links)
+- Pagination: bottom-right, showing "1-10 of 234" with prev/next
+- Empty state: centered illustration + message + CTA button
+- Loading state: skeleton rows (6 rows of animated pulse bars)
+
+**Modals:**
+- Backdrop: black/50 opacity, blur(4px)
+- Container: white bg, radius-xl, shadow-xl, max-width based on content (sm:440px, md:560px, lg:720px, xl:960px)
+- Header: px-6 py-4, border-b, title + close button
+- Body: px-6 py-4, scrollable if content exceeds viewport
+- Footer: px-6 py-4, border-t, right-aligned buttons
+
+**Badges/Tags:**
+- Pill shape (radius-full), px-2.5 py-0.5
+- Status badges: colored dot (8px circle) + text
+- Use semantic colors: success for active/approved, warning for pending, error for overdue/rejected, info for in-progress
+
+**Avatars:**
+- Circular, sizes: 24px, 32px, 40px, 48px, 64px
+- Fallback: initials on gradient background (use name hash to pick consistent gradient)
+- Group: overlapping with -8px margin, +N counter at end
+- Online indicator: 10px green dot at bottom-right
+
+**Empty States:**
+- Centered in container
+- Light illustration (SVG, use brand colors at 20% opacity)
+- Heading: text-lg semibold gray-700
+- Description: text-sm gray-500, max-w-sm, text-center
+- CTA: Primary button
+
+**Loading States:**
+- Skeleton screens that mirror the actual layout (not a centered spinner)
+- Pulse animation on skeleton elements
+- Progressive loading: show structure immediately, fill data as it arrives
+
+**Error States:**
+- Inline errors: red border on field + error message below
+- Page errors: centered message with retry button
+- Toast errors: slide-in from top-right, auto-dismiss after 5s, manual dismiss
+- Never show raw error codes or stack traces
+
+### 1.7 Dashboard Design Patterns
+
+Dashboards are the crown jewel of this product. Every dashboard must feel like opening Bloomberg Terminal meets Stripe Dashboard — dense with information yet beautifully organized.
+
+**Stat Cards (KPI Cards):**
+- Icon (in brand-tinted circle bg) + Label (text-sm gray-500) + Value (text-3xl font-bold) + Trend indicator (green up arrow or red down arrow + percentage)
+- Values animate counting up from 0 on page load
+- Subtle gradient border on hover
+- Grid: 4 columns on desktop, 2 on tablet, 1 on mobile
+
+**Charts:**
+- Use a consistent chart library (Recharts or Nivo) across all dashboards
+- Color palette: use the accent palette defined above, never random colors
+- All charts must have: title, optional subtitle, legend, tooltip on hover, responsive sizing
+- Animate on enter (lines draw, bars grow up, pie segments rotate in)
+- Include a time range selector (Today, This Week, This Month, This Term, This Year, Custom)
+- Chart types to implement:
+  - Area charts for trends over time (attendance, enrollment, fee collection)
+  - Bar charts for comparisons (grade distribution, section performance)
+  - Donut charts for composition (student demographics, fee status breakdown)
+  - Line charts for multi-series trends (performance across subjects)
+  - Heatmaps for attendance patterns (days × weeks)
+  - Sparklines inline in tables/cards for quick trends
+
+**Dashboard Layout:**
+- Top: Welcome banner with user name, date, school name, and quick action buttons
+- Row 1: 4 KPI stat cards
+- Row 2: 2-column layout — primary chart (2/3 width) + secondary info (1/3 width)
+- Row 3: Full-width table or activity feed
+- Row 4: Additional charts or widgets in 2-3 column grid
+- Use CSS Grid with responsive breakpoints, never let content feel cramped
+
+---
+
+## PART 2 — APPLICATION ARCHITECTURE AND NAVIGATION
+
+### 2.1 Application Shell
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│  HEADER BAR (64px)                                                  │
+│  ┌──────┬──────────────────────────────────────────┬──────────────┐ │
+│  │ Logo │  Global Search (cmd+K)                    │ 🔔 👤 ⚙️   │ │
+│  └──────┴──────────────────────────────────────────┴──────────────┘ │
+├──────────┬──────────────────────────────────────────────────────────┤
+│ SIDEBAR  │  MAIN CONTENT AREA                                       │
+│ (260px)  │                                                          │
+│          │  ┌──────────────────────────────────────────────────────┐ │
+│ 🏠 Dash  │  │  Page Header (Breadcrumb + Title + Actions)          │ │
+│ 👨‍🎓 Stud │  ├──────────────────────────────────────────────────────┤ │
+│ 👨‍🏫 Staff│  │                                                      │ │
+│ 📚 Acad  │  │  PAGE CONTENT                                        │ │
+│ 📝 Exams │  │                                                      │ │
+│ 📊 Attend│  │  (Scrollable, padded, max-width 1440px centered)     │ │
+│ 💰 Fees  │  │                                                      │ │
+│ 🚌 Trans │  │                                                      │ │
+│ 📢 Comms │  │                                                      │ │
+│ 🏥 Health│  │                                                      │ │
+│ 📋 Report│  │                                                      │ │
+│ ⚙️ Config│  │                                                      │ │
+│          │  └──────────────────────────────────────────────────────┘ │
+│ ─────── │                                                           │
+│ 🏫 School│                                                          │
+│ Selector │                                                          │
+└──────────┴──────────────────────────────────────────────────────────┘
+```
+
+### 2.2 Sidebar Navigation Structure
+
+```
+SIDEBAR NAVIGATION:
+├── 🏠 Dashboard                              ← Role-specific dashboard
+├── 👨‍🎓 Students
+│   ├── All Students                          ← Master student list with filters
+│   ├── Admissions                            ← Enquiry → Application → Enrollment pipeline
+│   ├── Enrollment                            ← Active enrollment management
+│   ├── Student Profiles                      ← Individual student 360° view
+│   ├── Promotions & Transfers                ← Year-end promotion, section changes
+│   └── Alumni                                ← Graduated students
+├── 👨‍🏫 Staff
+│   ├── All Staff                             ← Teacher + non-teaching staff list
+│   ├── Teachers                              ← Teacher-specific management
+│   ├── Departments                           ← Academic departments
+│   ├── Attendance                            ← Staff attendance
+│   ├── Leave Management                      ← Leave requests, approvals, balances
+│   ├── Substitutions                         ← Substitute teacher assignments
+│   └── Performance                           ← Appraisals and reviews
+├── 📚 Academics
+│   ├── Curriculum                            ← Curriculum framework management
+│   ├── Subjects & Grades                     ← Subject assignments per grade
+│   ├── Sections & Classrooms                 ← Section management, class assignments
+│   ├── Timetable                             ← Visual timetable builder
+│   ├── Lesson Plans                          ← Teacher lesson planning
+│   ├── Assignments & Homework                ← Assignment creation and tracking
+│   └── Resources & Library                   ← Learning resources, digital library
+├── 📝 Examinations
+│   ├── Exam Schedule                         ← Exam calendar and scheduling
+│   ├── Grade Book                            ← Mark entry and grade management
+│   ├── Report Cards                          ← Report card generation and publishing
+│   ├── Assessment Types                      ← Configure assessment frameworks
+│   └── Analytics                             ← Exam performance analytics
+├── 📊 Attendance
+│   ├── Daily Attendance                      ← Mark/view daily attendance
+│   ├── Period Attendance                     ← Period-wise tracking
+│   ├── Reports                               ← Attendance reports and patterns
+│   └── Late Arrivals                         ← Tardy tracking
+├── 💰 Finance
+│   ├── Fee Structure                         ← Fee type and amount configuration
+│   ├── Fee Collection                        ← Payment recording and tracking
+│   ├── Invoices                              ← Invoice generation and management
+│   ├── Scholarships & Discounts              ← Financial aid management
+│   ├── Payment Gateway                       ← Online payment integration
+│   ├── Reports                               ← Financial reports and reconciliation
+│   └── Expense Tracking                      ← School expense management
+├── 🚌 Transport
+│   ├── Routes & Stops                        ← Route planning and management
+│   ├── Vehicles                              ← Fleet management
+│   ├── Assignments                           ← Student-route assignment
+│   ├── Tracking                              ← Live GPS tracking dashboard
+│   └── Reports                               ← Transport reports
+├── 📢 Communication
+│   ├── Announcements                         ← School-wide announcements
+│   ├── Messages                              ← Direct messaging system
+│   ├── Circulars                             ← Official circular management
+│   ├── SMS & Email                           ← Bulk communication
+│   ├── Events                                ← Event management and RSVP
+│   └── Parent-Teacher Meetings               ← PTM scheduling
+├── 🛡️ Safeguarding
+│   ├── Incidents                             ← Incident reporting and tracking
+│   ├── Behavior                              ← Behavior points, rewards, sanctions
+│   ├── Counselor Notes                       ← Confidential counseling records
+│   └── Wellbeing Tracker                     ← Student wellbeing monitoring
+├── 🏥 Health
+│   ├── Clinic Visits                         ← Nurse visit log
+│   ├── Medical Records                       ← Student health profiles (restricted access)
+│   ├── Medications                           ← Medication administration tracking
+│   └── Immunization                          ← Vaccination records
+├── 📋 Reports & Analytics
+│   ├── Academic Reports                      ← Performance analytics
+│   ├── Operational Reports                   ← Attendance, finance, transport
+│   ├── KHDA Reports                          ← Regulatory compliance reports
+│   ├── Custom Report Builder                 ← Drag-and-drop report builder
+│   └── Export Center                         ← Bulk data exports
+├── ⚙️ Configuration
+│   ├── School Profile                        ← School details, branding
+│   ├── Academic Year                         ← Year, terms, calendar
+│   ├── Users & Roles                         ← User management, permissions
+│   ├── Workflows                             ← Approval workflows configuration
+│   ├── Notifications                         ← Notification rules
+│   ├── Integrations                          ← Third-party connections
+│   └── Audit Log                             ← System audit trail
+└── 🏫 School Selector                        ← Switch between schools (multi-tenant)
+```
+
+### 2.3 Global Features
+
+**Command Palette (Cmd+K):**
+- Full-screen overlay search
+- Search across: students, staff, pages, actions, recent items
+- Keyboard navigable
+- Grouped results with icons
+- Recent searches history
+- Quick actions: "Add Student", "Mark Attendance", "Create Invoice"
+
+**Notification Center:**
+- Bell icon with unread count badge
+- Dropdown panel with categorized notifications
+- Categories: Approvals, Alerts, Reminders, System
+- Mark as read, mark all as read
+- Click to navigate to relevant page
+- Real-time update simulation
+
+**User Profile Menu:**
+- Avatar + name + role
+- Quick links: My Profile, Settings, Switch School, Help, Logout
+- Current school and academic year display
+
+**Breadcrumb Navigation:**
+- Always present below header
+- Clickable path: Dashboard > Students > Student Profile > Ahmed Al-Rashid
+- Dynamic based on current route
+
+---
+
+## PART 3 — ROLE-SPECIFIC EXPERIENCES
+
+### 3.1 Super Admin / Platform Admin Dashboard
+
+**Purpose:** Oversee the entire multi-school ecosystem.
+
+**Layout:**
+```
+Row 1: Platform KPIs
+┌────────────────┬────────────────┬────────────────┬────────────────┐
+│ Total Schools  │ Total Students │ Total Staff    │ Revenue MTD    │
+│ 12             │ 18,450         │ 2,340          │ AED 4.2M       │
+│ +2 this year   │ ↑ 8.3%         │ ↑ 3.1%         │ ↑ 12.4%        │
+└────────────────┴────────────────┴────────────────┴────────────────┘
+
+Row 2: School Performance Comparison
+┌─────────────────────────────────────────┬──────────────────────────┐
+│ Enrollment Trend by School (Area Chart) │ Collection Rate by       │
+│ [12-month trend, one line per school]   │ School (Horizontal Bar)  │
+└─────────────────────────────────────────┴──────────────────────────┘
+
+Row 3: School Health Matrix
+┌──────────────────────────────────────────────────────────────────────┐
+│ School Performance Matrix (Table)                                    │
+│ School Name | Students | Attendance% | Avg Grade | Fee Collection%   │
+│ ──────────────────────────────────────────────────────────────────── │
+│ Emirates Intl | 3,200   | 94.2%      | B+        | 92.1%            │
+│ Dubai Academy | 2,800   | 96.1%      | A-        | 88.7%            │
+│ ...                                                                  │
+└──────────────────────────────────────────────────────────────────────┘
+
+Row 4: Alerts + Activity
+┌──────────────────────────────┬───────────────────────────────────────┐
+│ Critical Alerts              │ Recent Platform Activity              │
+│ • 3 schools below 90% att.  │ • New school onboarded: Al Noor Intl  │
+│ • 2 pending KHDA reports     │ • 145 new admissions this week        │
+│ • License renewal due in 30d │ • Payroll processed for 5 schools     │
+└──────────────────────────────┴───────────────────────────────────────┘
+```
+
+### 3.2 Principal Dashboard
+
+**Purpose:** Complete operational overview of their school.
+
+**Layout:**
+```
+Top: Welcome Banner
+┌──────────────────────────────────────────────────────────────────────┐
+│ Good Morning, Dr. Sarah Al-Maktoum 👋                               │
+│ Emirates International School — Tuesday, October 21, 2026           │
+│ Academic Year 2026-27 | Term 1, Week 8                              │
+│                                              [Quick Actions ▾]      │
+└──────────────────────────────────────────────────────────────────────┘
+
+Row 1: Today's Snapshot
+┌────────────────┬────────────────┬────────────────┬────────────────┐
+│ Today's        │ Students       │ Staff          │ Pending        │
+│ Attendance     │ Present        │ Present        │ Approvals      │
+│ 94.7%          │ 3,024/3,194    │ 287/298        │ 14             │
+│ ↑ vs yesterday │ 170 absent     │ 11 on leave    │ 5 urgent       │
+└────────────────┴────────────────┴────────────────┴────────────────┘
+
+Row 2: Performance + Fee Status
+┌─────────────────────────────────────────┬──────────────────────────┐
+│ Academic Performance Trend              │ Fee Collection Status    │
+│ (Line chart: Avg scores by subject      │ (Donut chart)            │
+│  over the last 4 assessments)           │ Collected: 78%           │
+│                                         │ Pending: 15%             │
+│                                         │ Overdue: 7%              │
+└─────────────────────────────────────────┴──────────────────────────┘
+
+Row 3: Attendance Heatmap + Events
+┌─────────────────────────────────────────┬──────────────────────────┐
+│ Weekly Attendance Heatmap               │ Upcoming Events          │
+│ (Grid: Grades × Days of week,           │ • Oct 22: Parent Evening │
+│  color intensity = attendance %)        │ • Oct 25: Sports Day     │
+│                                         │ • Oct 28: KHDA Inspection│
+│                                         │ • Nov 1: Term Exams Start│
+└─────────────────────────────────────────┴──────────────────────────┘
+
+Row 4: Recent Activity + Quick Insights
+┌──────────────────────────────┬───────────────────────────────────────┐
+│ Recent Activity Feed         │ AI Insights                           │
+│ 📝 Ms. Khan submitted Q1    │ ⚠️ 12 students show declining         │
+│    grades for Grade 10B      │   attendance pattern                  │
+│ 🚌 Bus 7 arrived late (8:12)│ 📈 Grade 8 Math improved 4.2%        │
+│ 💰 AED 45,000 collected     │   after intervention program          │
+│ 📢 Circular sent to Grade 5 │ 🔔 23 fee reminders pending send     │
+└──────────────────────────────┴───────────────────────────────────────┘
+```
+
+### 3.3 Teacher Dashboard
+
+**Purpose:** Classroom-focused view for daily teaching workflow.
+
+**Layout:**
+```
+Top: Today's Schedule Strip
+┌──────────────────────────────────────────────────────────────────────┐
+│ Today's Classes                                    October 21, 2026 │
+│ ┌─────────┬─────────┬─────────┬─────────┬─────────┬──────────────┐ │
+│ │ 8:00 AM │ 9:00 AM │ 10:15AM │ 11:15AM │ 12:15PM │ 1:15 PM      │ │
+│ │ Math    │ Math    │ FREE    │ Science │ Math    │ Staff Meeting │ │
+│ │ Gr.10-A │ Gr.10-B │ PERIOD  │ Gr.9-A  │ Gr.10-C │              │ │
+│ │ Room 301│ Room 302│         │ Lab 2   │ Room 301│ Conference   │ │
+│ └─────────┴─────────┴─────────┴─────────┴─────────┴──────────────┘ │
+│ Current: Math — Grade 10-A — Room 301 (ends in 23 min)             │
+└──────────────────────────────────────────────────────────────────────┘
+
+Row 1: Quick Actions
+┌────────────────┬────────────────┬────────────────┬────────────────┐
+│ 📊 Mark        │ 📝 Enter       │ 📚 Assign      │ 📢 Send        │
+│ Attendance     │ Grades         │ Homework       │ Message        │
+│ for current    │ Grade 10-A     │ to any class   │ to parents     │
+│ class          │ Unit 3 Test    │                │                │
+└────────────────┴────────────────┴────────────────┴────────────────┘
+
+Row 2: My Classes Overview
+┌──────────────────────────────────────────────────────────────────────┐
+│ My Classes                                                           │
+│ ┌──────────────────┬──────────────────┬──────────────────┐          │
+│ │ Grade 10-A Math  │ Grade 10-B Math  │ Grade 10-C Math  │          │
+│ │ 32 students      │ 30 students      │ 31 students      │          │
+│ │ Avg: 78.4%       │ Avg: 82.1%       │ Avg: 75.6%       │          │
+│ │ 2 at-risk        │ 0 at-risk        │ 4 at-risk        │          │
+│ │ Next exam: Oct 28│ Next exam: Oct 28│ Next exam: Oct 28│          │
+│ └──────────────────┴──────────────────┴──────────────────┘          │
+└──────────────────────────────────────────────────────────────────────┘
+
+Row 3: Pending Tasks + Recent Student Activity
+┌──────────────────────────────┬───────────────────────────────────────┐
+│ My Pending Tasks             │ Recent Submissions                    │
+│ □ Grade Unit 3 Test (10-A)   │ Ahmed R. — Homework Ch.5 — ✅ On time│
+│   Due: Oct 23 | 32 papers    │ Fatima K. — Homework Ch.5 — ⚠️ Late │
+│ □ Submit lesson plan Week 9  │ Omar S. — Lab Report — ✅ On time    │
+│   Due: Oct 24                │ Layla M. — Homework Ch.5 — ❌ Missing│
+│ □ Review IEP for Sara M.     │                                      │
+│   Due: Oct 25                │                                      │
+└──────────────────────────────┴───────────────────────────────────────┘
+```
+
+### 3.4 Parent Portal Dashboard
+
+**Purpose:** Complete visibility into their children's school life.
+
+**Layout:**
+```
+Top: Child Selector (if multiple children)
+┌──────────────────────────────────────────────────────────────────────┐
+│ ┌─────────────────────┐  ┌─────────────────────┐                    │
+│ │ 👤 Ahmed Al-Rashid   │  │ 👤 Layla Al-Rashid   │                    │
+│ │ Grade 10-A | Active  │  │ Grade 7-B | Active   │                    │
+│ └─────────────────────┘  └─────────────────────┘                    │
+└──────────────────────────────────────────────────────────────────────┘
+
+Row 1: Today's Overview
+┌────────────────┬────────────────┬────────────────┬────────────────┐
+│ Attendance     │ Today's        │ Pending        │ Fee Balance    │
+│ Today          │ Classes        │ Homework       │                │
+│ ✅ Present     │ 6 periods      │ 3 pending      │ AED 2,400      │
+│ Arrived 7:42am │ Next: Science  │ 1 overdue      │ Due: Nov 1     │
+└────────────────┴────────────────┴────────────────┴────────────────┘
+
+Row 2: Academic Snapshot + Attendance Calendar
+┌─────────────────────────────────────────┬──────────────────────────┐
+│ Subject Performance                     │ Attendance This Month    │
+│ (Radar/Spider chart showing scores      │ (Calendar heatmap —      │
+│  across Math, Science, English,         │  green=present,          │
+│  Arabic, Social Studies)                │  red=absent,             │
+│                                         │  yellow=late)            │
+└─────────────────────────────────────────┴──────────────────────────┘
+
+Row 3: Latest Updates
+┌──────────────────────────────────────────────────────────────────────┐
+│ Recent Activity                                                      │
+│ 📝 Math Test Score: 85/100 (Class avg: 78) — Oct 18                 │
+│ 📚 Homework submitted: English Essay — Oct 17                        │
+│ 🏆 Received "Star Student" badge in Science — Oct 15                 │
+│ 📢 School circular: Sports Day schedule published — Oct 14           │
+│ 💰 Fee receipt: AED 12,000 Term 1 payment confirmed — Oct 10        │
+└──────────────────────────────────────────────────────────────────────┘
+
+Row 4: Upcoming + Quick Actions
+┌──────────────────────────────┬───────────────────────────────────────┐
+│ Upcoming                     │ Quick Actions                         │
+│ 📅 Oct 25: Sports Day       │ [💬 Message Teacher]                  │
+│ 📝 Oct 28: Term 1 Exams     │ [💰 Pay Fees Online]                  │
+│ 👥 Nov 5: Parent Evening    │ [📋 View Report Card]                 │
+│ 🏖️ Nov 14: UAE National Day │ [🚌 Track School Bus]                 │
+└──────────────────────────────┴───────────────────────────────────────┘
+```
+
+### 3.5 Student Portal Dashboard
+
+**Purpose:** Age-appropriate, engaging view for students.
+
+**Layout:**
+```
+Top: Welcome + Today's Info
+┌──────────────────────────────────────────────────────────────────────┐
+│ Hey Ahmed! 👋 Here's your Tuesday                                   │
+│ Grade 10-A | Emirates International School                          │
+└──────────────────────────────────────────────────────────────────────┘
+
+Row 1: Today's Schedule (timeline view)
+┌──────────────────────────────────────────────────────────────────────┐
+│ TODAY'S SCHEDULE                                                     │
+│ ═══●─────────●─────────●─────────●─────────●─────────●              │
+│  8:00       9:00      10:15     11:15     12:15     1:15            │
+│  Math       English   Break     Science   Arabic    PE              │
+│  Rm 301     Rm 205              Lab 2     Rm 301    Field           │
+│  [CURRENT: Math — ends in 23 min]                                   │
+└──────────────────────────────────────────────────────────────────────┘
+
+Row 2: My Performance + Homework
+┌──────────────────────────────────┬───────────────────────────────────┐
+│ My Grades This Term              │ Homework & Assignments            │
+│ Math:      A- (87%)    ████████░│ □ Math Ch.5 Problems — Due Oct 22 │
+│ English:   B+ (84%)    ███████░░│ □ Science Lab Report — Due Oct 23 │
+│ Science:   A  (91%)    █████████│ ✅ English Essay — Submitted       │
+│ Arabic:    B  (80%)    ████████░│ ✅ Arabic Worksheet — Graded: 18/20│
+│ Soc.Stud:  B+ (83%)   ███████░░│                                    │
+└──────────────────────────────────┴───────────────────────────────────┘
+
+Row 3: Achievements + Announcements
+┌──────────────────────────────────┬───────────────────────────────────┐
+│ My Achievements 🏆               │ School Announcements               │
+│ ⭐ Star Student — Science        │ 📢 Sports Day: Oct 25              │
+│ 📚 100% Homework Streak (2 wks) │ 📢 Exam Schedule Published         │
+│ 🏃 Athletics Team Member        │ 📢 Science Fair Registration Open  │
+│ Points: 340 | Rank: 12th        │                                    │
+└──────────────────────────────────┴───────────────────────────────────┘
+```
+
+---
+
+## PART 4 — COMPLETE FEATURE SPECIFICATIONS
+
+### MODULE 1: AUTHENTICATION AND MULTI-TENANCY
+
+**F-001: Login Page**
+- Beautiful full-page login with school branding
+- Left panel: branded visual (school photo/illustration with gradient overlay)
+- Right panel: login form
+- Email + password fields
+- "Remember me" checkbox
+- "Forgot Password" link
+- SSO button (Microsoft/Google)
+- School logo at top
+- Footer: "Powered by EduNexus"
+- Animated background subtle gradient shift
+
+**F-002: Multi-Factor Authentication**
+- OTP via email or SMS after password verification
+- 6-digit code input with auto-advance between digits
+- Resend timer (30 seconds)
+- "Trust this device for 30 days" option
+
+**F-003: Role-Based Access Control**
+- Every API response filtered by user role and permissions
+- Sidebar navigation shows only permitted modules
+- Action buttons visible only to authorized roles
+- Data-level security: teachers see only their classes, parents see only their children
+
+**F-004: School Selector (Multi-Tenant)**
+- Dropdown in sidebar footer showing current school
+- Switch between schools without re-login (for group admins)
+- Each school has its own branding, logo, colors
+- Data completely isolated between schools
+
+**F-005: Session Management**
+- Auto-logout after 30 minutes of inactivity
+- Session expiry warning modal at 25 minutes
+- Active sessions list in profile settings
+- "Logout from all devices" option
+
+**F-006: Password Reset Flow**
+- Enter email → receive reset link → set new password
+- Password strength meter (real-time)
+- Requirements: 8+ chars, uppercase, lowercase, number, special char
+- Link expires in 1 hour
+- Success confirmation with auto-redirect to login
+
+### MODULE 2: STUDENT MANAGEMENT
+
+**F-010: Student Directory**
+- Filterable, searchable list of all students
+- Filters: Grade, Section, Status (Active/Inactive/Graduated/Withdrawn), Gender, Nationality, Admission Year
+- Table columns: Photo, Student ID, Name, Grade-Section, Gender, Guardian, Status, Actions
+- Quick search by name or student ID
+- Bulk actions: Export, Send Message, Generate Report
+- Toggle between table view and card/grid view
+- Pagination with configurable page size (25, 50, 100)
+
+**F-011: Student 360° Profile Page**
+- Comprehensive student profile with tabbed sections
+- **Header:** Large photo, name, student ID, grade-section, status badge, quick action buttons
+- **Tab: Overview** — Personal info, guardian details, emergency contacts, address, medical summary
+- **Tab: Academics** — Current grades, historical performance chart, subject-wise breakdown
+- **Tab: Attendance** — Monthly calendar view, attendance percentage, pattern analysis
+- **Tab: Fees** — Payment history, outstanding balance, receipts, payment timeline
+- **Tab: Behavior** — Behavior points, incidents, rewards, sanctions timeline
+- **Tab: Health** — Medical conditions, allergies, clinic visits (nurse/admin only)
+- **Tab: Documents** — Uploaded documents (birth certificate, passport, emirates ID, photos)
+- **Tab: Activity** — Complete audit log of all actions related to this student
+- **Tab: Transport** — Assigned bus route, pickup/drop times, bus attendance
+
+**F-012: Student Registration Form**
+- Multi-step wizard form (not a single long form)
+- Step 1: Basic Information (name, DOB, gender, nationality, photo upload)
+- Step 2: Guardian Information (father, mother, emergency contacts)
+- Step 3: Previous School (transfer details, last school attended)
+- Step 4: Medical Information (conditions, allergies, medications, blood type)
+- Step 5: Transport Preference (bus required, pickup address)
+- Step 6: Document Upload (birth cert, passport, photos, previous report cards)
+- Step 7: Review & Submit (summary of all entered data)
+- Progress indicator showing current step
+- Save as draft at any step
+- Validation on each step before proceeding
+- Auto-generate Student ID on submission
+
+**F-013: Student Promotion & Section Transfer**
+- Promote students to next grade (bulk or individual)
+- Transfer between sections within same grade
+- Promotion rules engine (minimum attendance %, minimum grades)
+- Preview promotion results before confirming
+- Handle edge cases: retained students, conditional promotions
+- Academic year rollover workflow
+
+**F-014: Student Withdrawal Process**
+- Initiate withdrawal with reason selection
+- Clearance checklist: fees cleared, books returned, ID returned, transfer certificate generated
+- Multi-step approval workflow
+- Generate Transfer Certificate (TC) document
+- Mark student as withdrawn (retain records, do not delete)
+- Withdrawal analytics (reasons, trends)
+
+**F-015: Student Search & Filters**
+- Global quick search (searches across name, ID, guardian name, phone)
+- Advanced filter panel with multiple criteria
+- Save filter presets ("My Class", "Grade 10 Boys", "Fee Defaulters")
+- Filter by: Grade, Section, Gender, Nationality, Status, Admission Year, Fee Status, Attendance %, Bus Route, Medical Flag
+
+### MODULE 3: ADMISSIONS
+
+**F-020: Admission Enquiry Form**
+- Public-facing form (can be embedded on school website)
+- Captures: student name, DOB, grade applying for, parent details, phone, email, current school
+- Auto-creates lead in the system
+- Sends confirmation email/SMS to parent
+- Captcha protection
+
+**F-021: Admissions Pipeline (Kanban Board)**
+- Visual pipeline board with drag-and-drop
+- Stages: New Enquiry → Under Review → Assessment Scheduled → Assessment Done → Offer Made → Accepted → Enrolled → Rejected/Withdrawn
+- Card for each applicant showing: name, grade, date, source, assigned staff
+- Click card to open full application
+- Filter by grade, date range, source, assigned staff
+- Stage counts and conversion rates at top
+
+**F-022: Application Review Workflow**
+- Full application form with all submitted documents
+- Reviewer checklist (age eligibility, documents complete, previous records)
+- Internal notes and comments
+- Schedule assessment/interview (with calendar integration)
+- Decision: Accept, Reject, Waitlist, Request More Info
+- Automated notification to parents at each stage
+
+**F-023: Admission Offer and Acceptance**
+- Generate offer letter (from template)
+- Send to parent via email with accept/decline link
+- Track acceptance status and deadline
+- On acceptance: initiate enrollment, generate fee structure, assign section
+- Waitlist management with auto-offer on rejection
+
+**F-024: Admission Analytics Dashboard**
+- Applications by grade, source, status (funnel chart)
+- Conversion rates at each pipeline stage
+- Time-to-enroll metrics
+- Source effectiveness (word of mouth, website, events, agents)
+- Year-over-year comparison
+- Capacity vs. applications by grade
+
+### MODULE 4: ATTENDANCE MANAGEMENT
+
+**F-030: Daily Attendance Marking**
+- Teacher marks attendance for their class
+- Student list with photo, name, roll number
+- Status options: Present, Absent, Late, Excused
+- Bulk actions: Mark all present, then adjust exceptions
+- Notes field for each student (optional)
+- Submit with confirmation
+- Lock attendance after submission (admin can unlock)
+- Mobile-friendly for marking on tablet/phone
+
+**F-031: Period-wise Attendance**
+- Mark attendance per period/class
+- Auto-populated from timetable (teacher sees their current class)
+- Track students who are present for some periods but absent for others
+- Flag discrepancies (marked present in morning, absent later)
+
+**F-032: Attendance Dashboard & Analytics**
+- School-wide attendance percentage (today, this week, this month, this term)
+- Grade-wise attendance comparison (bar chart)
+- Daily attendance trend (line chart over past 30 days)
+- Attendance heatmap (grades × days, color-coded)
+- Students with attendance below threshold (configurable: 85%, 90%)
+- Chronic absenteeism alerts
+- Day-of-week patterns
+
+**F-033: Absence Management**
+- Parent can submit absence request (via parent portal)
+- Reason categories: Illness, Family Emergency, Travel, Appointment, Other
+- Supporting document upload (medical certificate)
+- Admin/teacher approval workflow
+- Approved absences marked as "Excused"
+- Auto-notify parent on unmarked absence (SMS/push)
+
+**F-034: Late Arrival Tracking**
+- Log late arrivals with time and reason
+- Gate/reception staff can mark latecomers
+- Lateness report (students frequently late)
+- Auto-send lateness notification to parent
+- Configurable tardy policies (3 lates = 1 absence)
+
+### MODULE 5: ACADEMICS & TIMETABLE
+
+**F-040: Academic Year & Term Configuration**
+- Define academic year (start date, end date)
+- Define terms/semesters within the year
+- Working days calendar (mark holidays, breaks, events)
+- Carry forward configuration to next year
+
+**F-041: Grade & Section Structure**
+- Define grades (KG1, KG2, Grade 1-12 or Year 1-13)
+- Define sections per grade (A, B, C, D)
+- Set class capacity per section
+- Assign class teacher (homeroom teacher) per section
+- Map curriculum to grade (e.g., IB for Grades 11-12, British for others)
+
+**F-042: Subject Management**
+- Create subjects (Mathematics, English Language, Arabic, Science, etc.)
+- Subject categories: Core, Elective, Co-curricular
+- Assign subjects to grades
+- Assign teachers to subjects per grade-section
+- Subject groups for curriculum-specific requirements
+- Credit/unit hours per subject
+
+**F-043: Visual Timetable Builder**
+- Drag-and-drop timetable interface
+- Grid: Time slots (rows) × Days (columns)
+- Color-coded by subject
+- Constraints: teacher availability, room capacity, subject frequency per week
+- Conflict detection (teacher double-booked, room double-booked)
+- Generate printable timetable per class, per teacher, per room
+- View modes: Class view, Teacher view, Room view
+- Bulk period creation for recurring patterns
+
+**F-044: Lesson Plan Management**
+- Teachers create lesson plans linked to subject + date
+- Fields: Topic, Learning Objectives, Activities, Resources, Assessment, Homework
+- Attach files (worksheets, presentations)
+- Status: Draft, Submitted, Approved
+- HOD (Head of Department) review and approval
+- Calendar view of lesson plans
+- Link to curriculum standards/objectives
+
+**F-045: Assignment & Homework**
+- Create assignments for a class or multiple classes
+- Fields: Title, Description, Subject, Due Date, Attachments, Max Marks
+- Publish to student and parent portals
+- Students submit digitally (file upload, text entry)
+- Submission tracking: Submitted, Late, Missing
+- Grade submissions inline
+- Bulk download submissions
+- Assignment analytics (submission rate, average score)
+
+### MODULE 6: EXAMINATIONS & GRADING
+
+**F-050: Exam Schedule Management**
+- Create exam series (Midterm, Final, Unit Test, Mock)
+- Schedule exams: date, time, subject, duration, venue
+- Exam timetable view (calendar grid)
+- Assign invigilators
+- Publish exam schedule to students and parents
+- Seating arrangement generator (optional)
+
+**F-051: Grade Book**
+- Mark entry interface per subject per class
+- Columns: student name, marks obtained, max marks, grade, remarks
+- Import marks from CSV/Excel
+- Auto-calculate grades based on grading scale
+- Support multiple grading systems:
+  - Percentage-based (0-100)
+  - Letter grades (A+, A, B+, B, C, D, F)
+  - GPA (4.0 scale)
+  - IB 1-7 scale
+  - Descriptive (Excellent, Good, Satisfactory, Needs Improvement)
+- Save as draft, submit for review, publish
+- Lock grades after publication
+
+**F-052: Report Card Generation**
+- Configurable report card templates per grade/curriculum
+- Auto-populated from grade book data
+- Include: student info, subject marks, grades, class rank, attendance summary, teacher remarks, principal remarks
+- Preview before publishing
+- Bulk generate for entire class
+- PDF download and print
+- Publish to parent portal
+- Digital signatures (class teacher, principal)
+- Support for both English and Arabic content
+
+**F-053: Assessment Configuration**
+- Define assessment types (Formative, Summative, Project, Practical, Oral)
+- Weightage configuration (e.g., Midterm 30%, Final 50%, Classwork 20%)
+- Continuous assessment tracking
+- Rubric builder for subjective assessments
+- Link assessments to curriculum learning objectives
+
+**F-054: Academic Performance Analytics**
+- Class performance dashboard per exam
+- Subject-wise average, highest, lowest, median
+- Grade distribution chart (bar chart showing A/B/C/D/F counts)
+- Student progress tracker (performance across multiple exams — line chart)
+- Comparative analysis: section vs section, term vs term
+- Identify at-risk students (declining performance)
+- Teacher performance insights (average class performance by teacher)
+- Export analytics reports
+
+### MODULE 7: FEE MANAGEMENT & FINANCE
+
+**F-060: Fee Structure Configuration**
+- Define fee types: Tuition, Registration, Transport, Lab, Activity, Books, Uniform, etc.
+- Set amounts per grade level
+- Define payment frequency: Annual, Termly, Monthly, One-time
+- Configure late payment penalties (percentage or flat fee)
+- Academic year specific fee structures
+- Sibling discount rules (e.g., 10% off second child, 20% off third)
+
+**F-061: Fee Assignment**
+- Assign fee structure to students (bulk by grade or individual)
+- Apply scholarships and discounts
+- Generate fee schedule for the academic year
+- Handle mid-year enrollments (prorated fees)
+- Special fee waivers (admin approval required)
+
+**F-062: Invoice Generation**
+- Auto-generate invoices based on fee schedule
+- Invoice includes: school details, student details, fee breakdown, due date, payment instructions
+- Invoice numbering (auto-incremented)
+- Send invoice via email to parent
+- Download invoice as PDF
+- Bulk invoice generation per grade/school
+
+**F-063: Payment Recording & Collection**
+- Record payments against invoices
+- Payment methods: Cash, Bank Transfer, Cheque, Online (card), Wallet
+- Partial payment support
+- Generate payment receipt (PDF)
+- Receipt number auto-generated
+- Send receipt via email
+- Payment reference number (for bank transfers)
+
+**F-064: Online Payment Integration**
+- Secure payment gateway integration (Stripe, PayTabs, Network International)
+- Parent portal pay button
+- Payment link via email/SMS
+- Multiple payment methods (card, Apple Pay, Google Pay)
+- Payment status tracking (initiated, processing, completed, failed)
+- Automatic reconciliation
+- 3D Secure authentication
+
+**F-065: Fee Dashboard & Reports**
+- Total fees expected vs collected vs outstanding (stat cards)
+- Collection rate by grade, by month (bar chart)
+- Overdue payments list with aging (0-30, 30-60, 60-90, 90+ days)
+- Payment trend over months (area chart)
+- Top defaulters list
+- Daily collection summary
+- Scholarship and discount utilization report
+- Revenue forecast based on payment patterns
+- Export to accounting format (CSV, Excel)
+
+**F-066: Scholarship & Discount Management**
+- Define scholarship types: Merit, Need-based, Sibling, Staff Child, Early Bird
+- Percentage or fixed amount discount
+- Approval workflow for scholarship applications
+- Track scholarships per student
+- Budget vs utilization tracking
+- Scholarship renewal management
+
+### MODULE 8: STAFF & HR MANAGEMENT
+
+**F-070: Staff Directory**
+- Searchable, filterable list of all staff
+- Filters: Department, Role, Status (Active/On Leave/Resigned), Joining Date
+- Table and card views
+- Staff categories: Teaching, Non-teaching, Administrative, Support
+
+**F-071: Staff Profile Page**
+- Personal information, photo, employee ID
+- Professional details: qualifications, certifications, specializations
+- Employment history at the school
+- Current assignments: classes, subjects, extracurricular duties
+- Leave balance and history
+- Performance review history
+- Documents: contract, qualifications, visa, emirates ID
+- Emergency contacts
+
+**F-072: Staff Onboarding**
+- Multi-step onboarding form
+- Personal details, qualifications, experience, documents
+- Generate employee ID
+- Assign department, role, reporting manager
+- Create user account with appropriate permissions
+- Orientation checklist tracking
+
+**F-073: Leave Management**
+- Staff submit leave requests via portal
+- Leave types: Annual, Sick, Maternity/Paternity, Personal, Emergency, Hajj, Unpaid
+- Calendar view showing team availability
+- Approval workflow (teacher → HOD → Principal)
+- Leave balance tracking per type
+- Conflict detection (multiple teachers from same department on same day)
+- Auto-suggest substitute teacher
+- Leave policy configuration (days per type, carry forward rules)
+
+**F-074: Staff Attendance**
+- Daily check-in/check-out tracking
+- Late arrival logging
+- Attendance summary report
+- Monthly attendance sheet (printable)
+- Integration with biometric (future — API ready)
+
+**F-075: Substitute Teacher Management**
+- When teacher is absent: show unassigned periods
+- Assign substitute from available teachers
+- Notify substitute teacher (in-app + SMS)
+- Track substitute assignments
+- Substitute workload fairness reporting
+
+### MODULE 9: TRANSPORTATION
+
+**F-080: Route Management**
+- Create bus routes with stops
+- Map view showing route path and stops
+- Stop details: name, location (GPS), pickup time, drop time
+- Route capacity and current utilization
+- Route optimization suggestions
+
+**F-081: Vehicle & Fleet Management**
+- Vehicle registry: bus number, plate, capacity, type, driver, assistant
+- Vehicle documents: registration, insurance, fitness certificate
+- Document expiry tracking and alerts
+- Driver details and license information
+
+**F-082: Student-Route Assignment**
+- Assign students to routes and stops
+- View students per route/stop
+- Change requests from parents
+- Wait list for full routes
+- Route assignment report
+
+**F-083: Transport Dashboard**
+- Active routes today
+- Bus status overview (on route, arrived, delayed)
+- Student count per route
+- Route utilization chart
+- Recent alerts (delays, incidents)
+
+### MODULE 10: COMMUNICATION
+
+**F-090: Announcements**
+- Create announcements targeted to: entire school, specific grades, specific sections, staff, parents
+- Rich text editor with formatting
+- Attach files, images
+- Schedule for future publishing
+- Priority levels: Normal, Important, Urgent
+- Read receipt tracking
+- Announcement archive
+
+**F-091: Messaging System**
+- Direct messages between staff members
+- Teacher-to-parent messaging
+- Conversation threads
+- Read receipts
+- Attachment support
+- Message templates for common communications
+- Admin can monitor communications (audit)
+
+**F-092: Circular Management**
+- Create official school circulars
+- Template-based creation
+- Approval workflow (draft → review → approve → publish)
+- PDF generation with school letterhead
+- Track acknowledgment from recipients
+- Circular archive by category and date
+
+**F-093: Bulk Communication**
+- SMS blast to selected recipients
+- Email campaigns with templates
+- Push notification to app users
+- Recipient selection: by grade, section, fee status, custom filters
+- Delivery tracking and analytics
+- Communication history log
+
+**F-094: Event Management**
+- Create school events (Sports Day, Science Fair, Cultural Day, Parent Evening)
+- Event details: date, time, venue, description, attachments
+- RSVP tracking
+- Event calendar view
+- Event categories and filtering
+- Photo/document upload post-event
+
+**F-095: Parent-Teacher Meeting (PTM)**
+- Schedule PTM sessions
+- Parents book time slots with specific teachers
+- Slot management: duration, availability, breaks
+- Booking confirmation and reminders
+- Conflict prevention (no double-booking)
+- Meeting notes recording
+- Virtual meeting link integration (Zoom/Teams)
+
+### MODULE 11: HEALTH & CLINIC
+
+**F-100: Clinic Visit Log**
+- Record student visits to school clinic
+- Details: date, time, complaint, examination, treatment, outcome
+- Outcome: returned to class, sent home, referred to hospital
+- Auto-notify parent if sent home
+- Visit history per student
+- Restricted access: nurse, admin, principal only
+
+**F-101: Medical Profile**
+- Student medical conditions (asthma, diabetes, allergies, etc.)
+- Allergies (food, medication, environmental) — highlighted prominently
+- Blood type
+- Regular medications
+- Emergency medical plan
+- Doctor/hospital details
+- Immunization records
+- Medical documents upload
+- STRICT ACCESS CONTROL: only nurse, designated admin, and emergency contacts
+
+**F-102: Medication Administration**
+- Track medications administered at school
+- Schedule: which student, which medication, dosage, time, duration
+- Administration log: who gave, when, notes
+- Parent consent required (uploaded form)
+- Alerts for upcoming and missed doses
+
+### MODULE 12: SAFEGUARDING & BEHAVIOR
+
+**F-110: Incident Reporting**
+- Report incidents: bullying, fighting, injury, property damage, behavioral
+- Reporter: any staff member
+- Details: date, time, location, students involved, witnesses, description
+- Severity levels: Minor, Moderate, Serious, Critical
+- Photo/document attachments
+- Auto-assign to safeguarding officer (for serious incidents)
+- Investigation tracking
+- Resolution and follow-up actions
+- Confidential — restricted access
+- Complete audit trail
+
+**F-111: Behavior Management**
+- Behavior points system
+- Positive reinforcement: merits, stars, house points
+- Negative tracking: demerits, warnings, detentions
+- Categories: Respect, Responsibility, Academic Integrity, Uniform, Punctuality
+- Accumulation rules (e.g., 3 warnings = parent meeting)
+- Behavior timeline per student
+- Class and grade behavior dashboard
+- Leaderboard for positive behaviors
+- Parent visibility of their child's behavior record
+
+**F-112: Wellbeing Tracker**
+- Regular wellbeing check-ins
+- Mood tracking (visual scale: great, good, okay, struggling, crisis)
+- Counselor appointment scheduling
+- Confidential counselor session notes (STRICTLY restricted)
+- Wellbeing trend analytics (anonymized at aggregate level)
+- Referral to external services workflow
+- Red flag alerts for declining wellbeing patterns
+
+### MODULE 13: REPORTS & ANALYTICS
+
+**F-120: Academic Reports**
+- Class performance reports
+- Subject analysis reports
+- Student progress reports (longitudinal)
+- At-risk student identification
+- Teacher effectiveness metrics (aggregated)
+- Curriculum coverage tracking
+
+**F-121: Operational Reports**
+- Daily school summary
+- Monthly operational report
+- Attendance summary (daily, weekly, monthly, termly)
+- Fee collection summary
+- Transport utilization report
+- Staff attendance and leave summary
+
+**F-122: KHDA Compliance Reports**
+- Attendance statistics formatted per KHDA requirements
+- Student demographics and enrollment data
+- Staff qualification summaries
+- Incident and safeguarding statistics
+- Academic performance summaries
+- Pre-formatted for regulatory submission
+
+**F-123: Custom Report Builder**
+- Drag-and-drop report designer
+- Select data source, fields, filters, grouping, sorting
+- Chart insertion (bar, line, pie, table)
+- Save report templates
+- Schedule automatic report generation
+- Export: PDF, Excel, CSV
+- Share reports with specific roles
+
+**F-124: Export Center**
+- Central hub for all data exports
+- Schedule recurring exports
+- Export history log
+- Format options: CSV, Excel, PDF, JSON
+- Large export queuing (background processing)
+- Download notification when ready
+
+### MODULE 14: CONFIGURATION & ADMINISTRATION
+
+**F-130: School Profile Setup**
+- School name, address, phone, email, website
+- School logo upload (appears on reports, invoices, portal)
+- School motto, vision, mission
+- KHDA license number and details
+- Campus details (if multi-campus)
+- Branding: primary color, accent color (used throughout the portal)
+- Time zone and calendar settings
+
+**F-131: Academic Year Management**
+- Create new academic year
+- Define terms/semesters with dates
+- Holiday calendar management
+- Working days configuration
+- Year rollover process (promote students, archive data, create new year)
+- Multiple academic years viewable (current + history)
+
+**F-132: User Management**
+- Create, edit, deactivate user accounts
+- Assign roles and permissions
+- Bulk user creation (CSV import)
+- Password reset for any user
+- User activity log
+- Last login tracking
+- Role management: create custom roles, assign granular permissions
+
+**F-133: Role & Permission Configuration**
+- Pre-defined roles: Super Admin, Principal, Vice Principal, HOD, Teacher, Accountant, HR Manager, Nurse, Counselor, Receptionist, Transport Manager, Parent, Student
+- Each role has a permission set across all modules (View, Create, Edit, Delete, Approve, Export)
+- Custom role creation
+- Permission inheritance and override
+- Sensitive module restrictions (Health: only Nurse + Admin; Safeguarding: only designated officers)
+
+**F-134: Notification Configuration**
+- Define notification rules
+- Events: Absence marked, Fee overdue, Grade published, Circular sent, Incident reported, Leave request, etc.
+- Channels: In-app, Email, SMS, Push notification
+- Recipients: Auto-assigned based on event type
+- Frequency: Immediate, Daily digest, Weekly summary
+- Template customization per notification type
+
+**F-135: Audit Log**
+- Complete trail of all system actions
+- Log: Who did What, When, Where (IP), Previous Value, New Value
+- Filterable by: User, Module, Action Type, Date Range
+- Exportable
+- Tamper-proof (append-only)
+- Retention policy: configurable (1 year, 3 years, 7 years)
+
+**F-136: Workflow Configuration**
+- Define approval workflows for key processes
+- Leave approval chain: Teacher → HOD → Principal
+- Fee waiver approval: Accountant → Finance Head → Principal
+- Incident escalation: Teacher → Safeguarding Officer → Principal
+- Visual workflow builder (drag-and-drop steps)
+- Conditional routing (if amount > X, require additional approval)
+
+---
+
+## PART 5 — DEMO DATA SPECIFICATION
+
+Generate realistic demo data for a school group called "Emirates Education Group" with 3 schools:
+
+### School 1: Emirates International School — Al Barsha
+- Curriculum: British (IGCSE/A-Levels)
+- Grades: FS1 to Year 13 (15 grade levels)
+- Sections per grade: 3-4 (A, B, C, D)
+- Total students: ~3,200
+- Total staff: ~310
+- Gender: Co-educational
+
+### School 2: Dubai Modern Academy — Jumeirah
+- Curriculum: IB (PYP, MYP, DP)
+- Grades: KG1 to Grade 12
+- Sections per grade: 2-3
+- Total students: ~1,800
+- Total staff: ~195
+- Gender: Co-educational
+
+### School 3: Al Noor Academy — Silicon Oasis
+- Curriculum: CBSE
+- Grades: KG to Class 12
+- Sections per grade: 3-4
+- Total students: ~2,400
+- Total staff: ~220
+- Gender: Co-educational
+
+### Demo Data Requirements:
+
+**Students (generate at minimum 50 visible in directory with full profiles):**
+- Mix of nationalities: Emirati (20%), Indian (25%), Pakistani (15%), British (10%), Egyptian (8%), Filipino (7%), Other Arab (10%), Other (5%)
+- Realistic Arabic and South Asian names
+- Student IDs: EIS-2024-0001 format
+- Emirates ID format: 784-XXXX-XXXXXXX-X
+- Parent details with phone (+971 format) and email
+- Medical records for some: asthma (5%), allergies (10%), diabetes (2%)
+- Bus assignments for 60% of students
+- Fee status mix: 75% paid, 15% partial, 10% overdue
+
+**Staff (generate at minimum 30 visible with profiles):**
+- Teachers with subject and grade assignments
+- HODs, Vice Principal, Principal
+- Admin staff: Accountant, HR, Receptionist, Nurse, IT
+- Mix of nationalities
+- Realistic qualifications: B.Ed, M.Ed, MA, BSc, etc.
+- Leave balances: Annual (22 days), Sick (10 days), Personal (5 days)
+
+**Academic Data:**
+- 10-12 subjects per grade level
+- Exam results for at least 2 exam series (Midterm, Unit Test)
+- Grade distribution: realistic bell curve
+- Attendance data for current month (daily, realistic patterns — higher Mon-Tue, lower Thu)
+- Timetable for at least 3 classes
+- 5-10 lesson plans
+- 5-10 assignments (mix of submitted, pending, overdue)
+
+**Financial Data:**
+- Fee structures per grade
+- Tuition: AED 25,000-55,000/year (varies by grade and school)
+- Transport: AED 4,000-6,000/year
+- Invoices generated for current term
+- Payment history for previous terms
+- Outstanding amounts for some students
+- Scholarship recipients (15 students)
+
+**Communication Data:**
+- 5 announcements (mix of school-wide and grade-specific)
+- 3 circulars (2 published, 1 draft)
+- 10-15 direct messages between staff and parents
+- 2 upcoming events
+- 1 PTM scheduled for next week
+
+**Transport Data:**
+- 12 bus routes with 8-15 stops each
+- Bus details (Bus 1-12, capacities 40-50)
+- Driver and assistant assigned
+- Student assignments to routes
+
+**Safeguarding Data:**
+- 5 incidents (2 resolved, 2 investigating, 1 new)
+- Behavior points for 20+ students (mix of positive and negative)
+- 3 wellbeing check-ins
+
+**Attendance Data:**
+- School-wide attendance: 93-96% range
+- Daily data for current month
+- Some students below 85% threshold
+- Late arrivals: 5-8 per day
+
+---
+
+## PART 6 — API ENDPOINTS (RESTful)
+
+### Authentication
+```
+POST   /api/v1/auth/login                    → Login with email/password
+POST   /api/v1/auth/verify-mfa               → Verify MFA code
+POST   /api/v1/auth/forgot-password           → Request password reset
+POST   /api/v1/auth/reset-password            → Reset password with token
+POST   /api/v1/auth/refresh-token             → Refresh access token
+POST   /api/v1/auth/logout                    → Logout current session
+GET    /api/v1/auth/me                        → Get current user profile
+PUT    /api/v1/auth/change-password           → Change password
+GET    /api/v1/auth/sessions                  → List active sessions
+DELETE /api/v1/auth/sessions/:id              → Terminate a session
+```
+
+### Schools & Configuration
+```
+GET    /api/v1/schools                        → List all schools (super admin)
+GET    /api/v1/schools/:schoolId              → Get school details
+PUT    /api/v1/schools/:schoolId              → Update school profile
+GET    /api/v1/schools/:schoolId/config       → Get school configuration
+PUT    /api/v1/schools/:schoolId/config       → Update school configuration
+GET    /api/v1/schools/:schoolId/academic-years         → List academic years
+POST   /api/v1/schools/:schoolId/academic-years         → Create academic year
+GET    /api/v1/schools/:schoolId/academic-years/:yearId → Get academic year
+PUT    /api/v1/schools/:schoolId/academic-years/:yearId → Update academic year
+GET    /api/v1/schools/:schoolId/terms                  → List terms
+POST   /api/v1/schools/:schoolId/terms                  → Create term
+GET    /api/v1/schools/:schoolId/holidays               → List holidays
+POST   /api/v1/schools/:schoolId/holidays               → Create holiday
+DELETE /api/v1/schools/:schoolId/holidays/:id            → Delete holiday
+```
+
+### Students
+```
+GET    /api/v1/students                       → List students (filtered, paginated)
+POST   /api/v1/students                       → Create/register new student
+GET    /api/v1/students/:id                   → Get student full profile
+PUT    /api/v1/students/:id                   → Update student details
+DELETE /api/v1/students/:id                   → Soft-delete (deactivate) student
+GET    /api/v1/students/:id/academics         → Get academic records
+GET    /api/v1/students/:id/attendance        → Get attendance records
+GET    /api/v1/students/:id/fees              → Get fee records
+GET    /api/v1/students/:id/behavior          → Get behavior records
+GET    /api/v1/students/:id/health            → Get health records (restricted)
+GET    /api/v1/students/:id/documents         → List student documents
+POST   /api/v1/students/:id/documents         → Upload document
+GET    /api/v1/students/:id/activity          → Get activity log
+GET    /api/v1/students/:id/transport         → Get transport assignment
+POST   /api/v1/students/bulk-import           → Bulk import from CSV
+POST   /api/v1/students/bulk-promote          → Bulk promotion
+GET    /api/v1/students/search                → Advanced search
+GET    /api/v1/students/export                → Export student data
+```
+
+### Admissions
+```
+GET    /api/v1/admissions/enquiries           → List enquiries
+POST   /api/v1/admissions/enquiries           → Create enquiry
+GET    /api/v1/admissions/enquiries/:id       → Get enquiry details
+PUT    /api/v1/admissions/enquiries/:id       → Update enquiry
+GET    /api/v1/admissions/applications        → List applications
+POST   /api/v1/admissions/applications        → Create application
+GET    /api/v1/admissions/applications/:id    → Get application details
+PUT    /api/v1/admissions/applications/:id    → Update application
+PUT    /api/v1/admissions/applications/:id/status  → Change application status
+POST   /api/v1/admissions/applications/:id/offer   → Generate offer
+POST   /api/v1/admissions/applications/:id/enroll  → Enroll from application
+GET    /api/v1/admissions/pipeline            → Get pipeline stats
+GET    /api/v1/admissions/analytics           → Admission analytics
+```
+
+### Attendance
+```
+GET    /api/v1/attendance/daily               → Get daily attendance (by class)
+POST   /api/v1/attendance/daily               → Mark daily attendance (bulk)
+PUT    /api/v1/attendance/daily/:id           → Update attendance record
+GET    /api/v1/attendance/period              → Get period attendance
+POST   /api/v1/attendance/period              → Mark period attendance
+POST   /api/v1/attendance/late                → Record late arrival
+GET    /api/v1/attendance/summary             → Attendance summary stats
+GET    /api/v1/attendance/report              → Detailed attendance report
+GET    /api/v1/attendance/heatmap             → Attendance heatmap data
+GET    /api/v1/attendance/below-threshold     → Students below threshold
+POST   /api/v1/attendance/absence-request     → Parent submits absence request
+GET    /api/v1/attendance/absence-requests     → List absence requests
+PUT    /api/v1/attendance/absence-requests/:id → Approve/reject absence
+```
+
+### Academics
+```
+GET    /api/v1/academics/grades               → List grades/year groups
+POST   /api/v1/academics/grades               → Create grade
+GET    /api/v1/academics/grades/:id/sections  → List sections for grade
+POST   /api/v1/academics/grades/:id/sections  → Create section
+GET    /api/v1/academics/subjects             → List subjects
+POST   /api/v1/academics/subjects             → Create subject
+PUT    /api/v1/academics/subjects/:id         → Update subject
+GET    /api/v1/academics/subjects/:id/assignments → List subject teachers
+POST   /api/v1/academics/teacher-assignments  → Assign teacher to subject-section
+GET    /api/v1/academics/timetable            → Get timetable (by class/teacher/room)
+POST   /api/v1/academics/timetable            → Create/update timetable
+GET    /api/v1/academics/timetable/conflicts  → Check for conflicts
+GET    /api/v1/academics/lesson-plans         → List lesson plans
+POST   /api/v1/academics/lesson-plans         → Create lesson plan
+PUT    /api/v1/academics/lesson-plans/:id     → Update lesson plan
+GET    /api/v1/academics/assignments          → List assignments
+POST   /api/v1/academics/assignments          → Create assignment
+PUT    /api/v1/academics/assignments/:id      → Update assignment
+GET    /api/v1/academics/assignments/:id/submissions → List submissions
+POST   /api/v1/academics/assignments/:id/submissions → Submit assignment (student)
+PUT    /api/v1/academics/assignments/:id/submissions/:subId → Grade submission
+GET    /api/v1/academics/departments          → List departments
+POST   /api/v1/academics/departments          → Create department
+```
+
+### Examinations
+```
+GET    /api/v1/exams/series                   → List exam series
+POST   /api/v1/exams/series                   → Create exam series
+GET    /api/v1/exams/schedule                 → Get exam schedule
+POST   /api/v1/exams/schedule                 → Create exam schedule entry
+GET    /api/v1/exams/gradebook                → Get gradebook (by class, exam)
+POST   /api/v1/exams/gradebook                → Enter/update marks (bulk)
+PUT    /api/v1/exams/gradebook/:id            → Update individual mark
+POST   /api/v1/exams/gradebook/import         → Import marks from file
+GET    /api/v1/exams/gradebook/lock-status    → Check lock status
+PUT    /api/v1/exams/gradebook/lock           → Lock/unlock gradebook
+GET    /api/v1/exams/report-cards             → List report cards
+POST   /api/v1/exams/report-cards/generate    → Generate report cards (bulk)
+GET    /api/v1/exams/report-cards/:id         → Get individual report card
+POST   /api/v1/exams/report-cards/publish     → Publish report cards
+GET    /api/v1/exams/analytics                → Exam analytics
+GET    /api/v1/exams/assessment-types         → List assessment types
+POST   /api/v1/exams/assessment-types         → Create assessment type
+GET    /api/v1/exams/grading-scales           → List grading scales
+POST   /api/v1/exams/grading-scales           → Create grading scale
+```
+
+### Finance
+```
+GET    /api/v1/finance/fee-structures         → List fee structures
+POST   /api/v1/finance/fee-structures         → Create fee structure
+PUT    /api/v1/finance/fee-structures/:id     → Update fee structure
+POST   /api/v1/finance/fee-assignments        → Assign fees to students
+GET    /api/v1/finance/invoices               → List invoices
+POST   /api/v1/finance/invoices/generate      → Generate invoices (bulk)
+GET    /api/v1/finance/invoices/:id           → Get invoice details
+PUT    /api/v1/finance/invoices/:id           → Update invoice
+GET    /api/v1/finance/invoices/:id/pdf       → Download invoice PDF
+POST   /api/v1/finance/payments               → Record payment
+GET    /api/v1/finance/payments               → List payments
+GET    /api/v1/finance/payments/:id/receipt   → Download receipt PDF
+GET    /api/v1/finance/scholarships           → List scholarships
+POST   /api/v1/finance/scholarships           → Create scholarship
+POST   /api/v1/finance/scholarships/assign    → Assign scholarship to student
+GET    /api/v1/finance/dashboard              → Fee collection dashboard data
+GET    /api/v1/finance/reports/collection     → Collection report
+GET    /api/v1/finance/reports/outstanding    → Outstanding fees report
+GET    /api/v1/finance/reports/aging          → Aging analysis
+GET    /api/v1/finance/expenses               → List expenses
+POST   /api/v1/finance/expenses               → Record expense
+```
+
+### Staff & HR
+```
+GET    /api/v1/staff                          → List all staff
+POST   /api/v1/staff                          → Create staff record
+GET    /api/v1/staff/:id                      → Get staff profile
+PUT    /api/v1/staff/:id                      → Update staff record
+GET    /api/v1/staff/:id/attendance           → Staff attendance records
+GET    /api/v1/staff/:id/leave                → Staff leave records
+GET    /api/v1/staff/:id/classes              → Staff class assignments
+GET    /api/v1/staff/:id/documents            → Staff documents
+POST   /api/v1/staff/leave/request            → Submit leave request
+GET    /api/v1/staff/leave/requests           → List leave requests (for approver)
+PUT    /api/v1/staff/leave/requests/:id       → Approve/reject leave
+GET    /api/v1/staff/leave/balances           → Get leave balances
+GET    /api/v1/staff/substitutions            → List substitute assignments
+POST   /api/v1/staff/substitutions            → Create substitute assignment
+GET    /api/v1/staff/departments              → List staff departments
+GET    /api/v1/staff/attendance/daily         → Mark/view daily staff attendance
+```
+
+### Transport
+```
+GET    /api/v1/transport/routes               → List routes
+POST   /api/v1/transport/routes               → Create route
+GET    /api/v1/transport/routes/:id           → Get route details with stops
+PUT    /api/v1/transport/routes/:id           → Update route
+GET    /api/v1/transport/routes/:id/students  → Students on route
+GET    /api/v1/transport/vehicles             → List vehicles
+POST   /api/v1/transport/vehicles             → Add vehicle
+PUT    /api/v1/transport/vehicles/:id         → Update vehicle
+POST   /api/v1/transport/assignments          → Assign student to route
+DELETE /api/v1/transport/assignments/:id      → Remove student from route
+GET    /api/v1/transport/dashboard            → Transport dashboard data
+```
+
+### Communication
+```
+GET    /api/v1/communications/announcements         → List announcements
+POST   /api/v1/communications/announcements         → Create announcement
+GET    /api/v1/communications/announcements/:id     → Get announcement details
+PUT    /api/v1/communications/announcements/:id     → Update announcement
+GET    /api/v1/communications/circulars             → List circulars
+POST   /api/v1/communications/circulars             → Create circular
+PUT    /api/v1/communications/circulars/:id         → Update circular
+PUT    /api/v1/communications/circulars/:id/publish → Publish circular
+GET    /api/v1/communications/messages              → List messages/conversations
+POST   /api/v1/communications/messages              → Send message
+GET    /api/v1/communications/messages/:threadId    → Get message thread
+POST   /api/v1/communications/bulk-sms              → Send bulk SMS
+POST   /api/v1/communications/bulk-email            → Send bulk email
+GET    /api/v1/communications/events                → List events
+POST   /api/v1/communications/events                → Create event
+PUT    /api/v1/communications/events/:id            → Update event
+POST   /api/v1/communications/events/:id/rsvp       → RSVP to event
+GET    /api/v1/communications/ptm/sessions          → List PTM sessions
+POST   /api/v1/communications/ptm/sessions          → Create PTM session
+GET    /api/v1/communications/ptm/slots             → Get available slots
+POST   /api/v1/communications/ptm/bookings          → Book PTM slot
+```
+
+### Health (Restricted Access)
+```
+GET    /api/v1/health/visits                  → List clinic visits
+POST   /api/v1/health/visits                  → Record clinic visit
+GET    /api/v1/health/visits/:id              → Get visit details
+GET    /api/v1/health/students/:id/medical    → Get student medical profile
+PUT    /api/v1/health/students/:id/medical    → Update medical profile
+GET    /api/v1/health/medications             → List medication schedules
+POST   /api/v1/health/medications             → Add medication schedule
+POST   /api/v1/health/medications/:id/administer → Record medication given
+GET    /api/v1/health/immunization/:studentId → Get immunization records
+PUT    /api/v1/health/immunization/:studentId → Update immunization records
+```
+
+### Safeguarding & Behavior
+```
+GET    /api/v1/safeguarding/incidents         → List incidents
+POST   /api/v1/safeguarding/incidents         → Report incident
+GET    /api/v1/safeguarding/incidents/:id     → Get incident details
+PUT    /api/v1/safeguarding/incidents/:id     → Update incident
+PUT    /api/v1/safeguarding/incidents/:id/investigate → Update investigation
+PUT    /api/v1/safeguarding/incidents/:id/resolve     → Resolve incident
+GET    /api/v1/behavior/points               → List behavior points
+POST   /api/v1/behavior/points               → Award/deduct behavior points
+GET    /api/v1/behavior/students/:id         → Student behavior history
+GET    /api/v1/behavior/leaderboard          → Positive behavior leaderboard
+GET    /api/v1/safeguarding/wellbeing/:studentId → Wellbeing data (restricted)
+POST   /api/v1/safeguarding/wellbeing/checkin    → Record wellbeing check-in
+GET    /api/v1/safeguarding/counselor/sessions   → Counselor session list
+POST   /api/v1/safeguarding/counselor/sessions   → Create session note
+```
+
+### Reports & Analytics
+```
+GET    /api/v1/reports/academic/class-performance     → Class performance report
+GET    /api/v1/reports/academic/subject-analysis       → Subject analysis
+GET    /api/v1/reports/academic/student-progress/:id   → Student progress
+GET    /api/v1/reports/academic/at-risk                → At-risk students
+GET    /api/v1/reports/attendance/summary              → Attendance summary
+GET    /api/v1/reports/attendance/detailed              → Detailed attendance
+GET    /api/v1/reports/finance/collection               → Fee collection report
+GET    /api/v1/reports/finance/outstanding              → Outstanding fees
+GET    /api/v1/reports/operational/daily                → Daily school summary
+GET    /api/v1/reports/khda/attendance                  → KHDA attendance report
+GET    /api/v1/reports/khda/demographics                → KHDA demographics
+GET    /api/v1/reports/custom                           → Run custom report
+POST   /api/v1/reports/custom                           → Save custom report
+GET    /api/v1/reports/export/:reportId                 → Export report
+```
+
+### Dashboard & Analytics
+```
+GET    /api/v1/dashboard/super-admin          → Super admin dashboard data
+GET    /api/v1/dashboard/principal             → Principal dashboard data
+GET    /api/v1/dashboard/teacher               → Teacher dashboard data
+GET    /api/v1/dashboard/parent                → Parent dashboard data
+GET    /api/v1/dashboard/student               → Student dashboard data
+GET    /api/v1/dashboard/finance               → Finance dashboard data
+GET    /api/v1/dashboard/transport              → Transport dashboard data
+GET    /api/v1/analytics/enrollment-trends     → Enrollment trend data
+GET    /api/v1/analytics/attendance-patterns   → Attendance pattern data
+GET    /api/v1/analytics/performance-trends    → Performance trend data
+GET    /api/v1/analytics/fee-collection-trends → Fee collection trend data
+GET    /api/v1/analytics/school-comparison     → Multi-school comparison
+```
+
+### Notifications & Tasks
+```
+GET    /api/v1/notifications                   → List notifications
+PUT    /api/v1/notifications/:id/read          → Mark as read
+PUT    /api/v1/notifications/read-all          → Mark all as read
+GET    /api/v1/notifications/preferences       → Get notification preferences
+PUT    /api/v1/notifications/preferences       → Update notification preferences
+GET    /api/v1/tasks                           → List pending tasks/approvals
+PUT    /api/v1/tasks/:id                       → Complete/action a task
+```
+
+### Administration
+```
+GET    /api/v1/admin/users                     → List system users
+POST   /api/v1/admin/users                     → Create user
+PUT    /api/v1/admin/users/:id                 → Update user
+PUT    /api/v1/admin/users/:id/activate        → Activate/deactivate user
+PUT    /api/v1/admin/users/:id/reset-password  → Reset user password
+GET    /api/v1/admin/roles                     → List roles
+POST   /api/v1/admin/roles                     → Create custom role
+PUT    /api/v1/admin/roles/:id                 → Update role permissions
+GET    /api/v1/admin/audit-log                 → Get audit log
+GET    /api/v1/admin/integrations              → List integrations
+PUT    /api/v1/admin/integrations/:id          → Configure integration
+GET    /api/v1/admin/workflows                 → List workflow configs
+POST   /api/v1/admin/workflows                 → Create workflow
+PUT    /api/v1/admin/workflows/:id             → Update workflow
+```
+
+### Global
+```
+GET    /api/v1/search                          → Global search
+GET    /api/v1/lookup/nationalities             → Nationality list
+GET    /api/v1/lookup/languages                 → Language list
+GET    /api/v1/lookup/religions                 → Religion list
+GET    /api/v1/lookup/emirates-areas            → UAE areas list
+GET    /api/v1/file/upload                      → File upload endpoint
+GET    /api/v1/file/:id                         → Get file/download
+DELETE /api/v1/file/:id                         → Delete file
+```
+
+---
+
+## PART 7 — PAGES AND ROUTES
+
+```
+/login                                         → Login page
+/forgot-password                               → Forgot password
+/reset-password                                → Reset password
+
+/dashboard                                     → Role-based dashboard (auto-redirect)
+/dashboard/super-admin                         → Super admin dashboard
+/dashboard/principal                           → Principal dashboard
+/dashboard/teacher                             → Teacher dashboard
+/dashboard/parent                              → Parent dashboard
+/dashboard/student                             → Student dashboard
+
+/students                                      → Student directory
+/students/new                                  → Add new student (wizard)
+/students/:id                                  → Student 360° profile
+/students/:id/edit                             → Edit student
+/students/:id/academics                        → Student academics tab
+/students/:id/attendance                       → Student attendance tab
+/students/:id/fees                             → Student fees tab
+/students/:id/behavior                         → Student behavior tab
+/students/:id/health                           → Student health tab (restricted)
+/students/:id/documents                        → Student documents
+/students/promotions                           → Promotion management
+/students/transfers                            → Transfer management
+/students/alumni                               → Alumni list
+
+/admissions                                    → Admissions pipeline (Kanban)
+/admissions/enquiries                          → Enquiry list
+/admissions/enquiries/new                      → New enquiry form
+/admissions/enquiries/:id                      → Enquiry details
+/admissions/applications/:id                   → Application review
+/admissions/analytics                          → Admission analytics
+
+/staff                                         → Staff directory
+/staff/new                                     → Add new staff
+/staff/:id                                     → Staff profile
+/staff/:id/edit                                → Edit staff
+/staff/teachers                                → Teachers list
+/staff/departments                             → Department management
+/staff/attendance                              → Staff attendance
+/staff/leave                                   → Leave management
+/staff/leave/requests                          → Leave requests (approver view)
+/staff/substitutions                           → Substitute management
+/staff/performance                             → Performance reviews
+
+/academics                                     → Academics overview
+/academics/curriculum                          → Curriculum management
+/academics/subjects                            → Subject management
+/academics/grades-sections                     → Grades & sections
+/academics/timetable                           → Timetable builder
+/academics/timetable/view                      → Timetable view (class/teacher/room)
+/academics/lesson-plans                        → Lesson plans
+/academics/lesson-plans/new                    → Create lesson plan
+/academics/lesson-plans/:id                    → View/edit lesson plan
+/academics/assignments                         → Assignment list
+/academics/assignments/new                     → Create assignment
+/academics/assignments/:id                     → Assignment details + submissions
+/academics/library                             → Library / resources
+
+/exams                                         → Exams overview
+/exams/schedule                                → Exam schedule
+/exams/schedule/new                            → Create exam
+/exams/gradebook                               → Gradebook
+/exams/gradebook/:classId/:examId              → Mark entry page
+/exams/report-cards                            → Report card management
+/exams/report-cards/:studentId                 → Individual report card
+/exams/assessment-types                        → Assessment type config
+/exams/analytics                               → Exam analytics
+
+/attendance                                    → Attendance overview
+/attendance/daily                              → Daily attendance marking
+/attendance/daily/:classId                     → Mark attendance for class
+/attendance/period                             → Period attendance
+/attendance/reports                            → Attendance reports
+/attendance/late-arrivals                      → Late arrival log
+/attendance/absence-requests                   → Absence request management
+
+/finance                                       → Finance overview
+/finance/fee-structures                        → Fee structure config
+/finance/fee-collection                        → Fee collection
+/finance/invoices                              → Invoice list
+/finance/invoices/:id                          → Invoice detail
+/finance/payments                              → Payment records
+/finance/scholarships                          → Scholarship management
+/finance/reports                               → Financial reports
+/finance/expenses                              → Expense tracking
+
+/transport                                     → Transport overview
+/transport/routes                              → Route management
+/transport/routes/:id                          → Route detail with map
+/transport/vehicles                            → Vehicle fleet
+/transport/assignments                         → Student-route assignments
+/transport/tracking                            → Live tracking dashboard
+
+/communications                                → Communication center
+/communications/announcements                  → Announcements
+/communications/announcements/new              → Create announcement
+/communications/messages                       → Messaging inbox
+/communications/messages/:threadId             → Message thread
+/communications/circulars                      → Circulars
+/communications/circulars/new                  → Create circular
+/communications/events                         → Events
+/communications/events/new                     → Create event
+/communications/events/:id                     → Event detail
+/communications/ptm                            → PTM management
+/communications/ptm/book                       → Book PTM slot (parent)
+
+/safeguarding                                  → Safeguarding overview
+/safeguarding/incidents                        → Incident list
+/safeguarding/incidents/new                    → Report incident
+/safeguarding/incidents/:id                    → Incident detail
+/safeguarding/behavior                         → Behavior management
+/safeguarding/behavior/:studentId              → Student behavior history
+/safeguarding/wellbeing                        → Wellbeing tracker
+/safeguarding/counselor                        → Counselor dashboard (restricted)
+
+/health                                        → Health overview (restricted)
+/health/clinic                                 → Clinic visits
+/health/clinic/new                             → Record clinic visit
+/health/medical-records/:studentId             → Student medical record
+/health/medications                            → Medication management
+/health/immunization                           → Immunization records
+
+/reports                                       → Reports center
+/reports/academic                              → Academic reports
+/reports/operational                           → Operational reports
+/reports/khda                                  → KHDA reports
+/reports/builder                               → Custom report builder
+/reports/exports                               → Export center
+
+/settings                                      → System settings
+/settings/school-profile                       → School profile
+/settings/academic-year                        → Academic year management
+/settings/users                                → User management
+/settings/users/new                            → Create user
+/settings/users/:id                            → User detail
+/settings/roles                                → Role & permission management
+/settings/roles/:id                            → Role detail (permissions grid)
+/settings/notifications                        → Notification rules
+/settings/workflows                            → Workflow configuration
+/settings/integrations                         → Third-party integrations
+/settings/audit-log                            → Audit log viewer
+```
+
+---
+
+## PART 8 — INTERACTION PATTERNS AND MICRO-INTERACTIONS
+
+### 8.1 Must-Have Micro-Interactions
+
+1. **Sidebar Navigation:** Active item has a brand-colored left border (3px) and brand-50 background. Hover shows subtle bg change. Collapse/expand with smooth width transition. Tooltips appear on collapsed icons.
+
+2. **Table Row Hover:** Subtle gray-50 background, slight shadow lift, action buttons fade in on the right.
+
+3. **Button Press:** Scale down to 0.98 on tap, spring back. Primary buttons get a subtle glow ring on focus.
+
+4. **Card Hover:** Lift up 2px with shadow-md transition. Slight border color change to brand-200.
+
+5. **Toggle Switch:** Smooth slide with spring physics. Color transition from gray to brand. Satisfying haptic feel through animation.
+
+6. **Notification Bell:** Bounce animation when new notification arrives. Badge count animates in with scale spring.
+
+7. **Status Badge Dot:** Gentle pulse animation on "Live" or "Active" indicators.
+
+8. **Form Validation:** Input border smoothly transitions to green (valid) or red (invalid). Error message slides down from below the field. Success checkmark fades in at the right of the input.
+
+9. **Data Loading:** Skeleton screens that perfectly mirror the actual layout. Shimmer effect left-to-right. Content fades in when loaded.
+
+10. **Page Transitions:** Subtle fade + slide-up when navigating between pages. Breadcrumb updates with animation.
+
+11. **Stat Counter Animation:** Numbers count up from 0 when they enter the viewport. Use easeOut curve for natural deceleration.
+
+12. **Chart Animations:** Lines draw progressively. Bars grow from bottom. Pie/donut segments rotate in. Tooltips appear with fade + scale.
+
+13. **Modal Entrance:** Backdrop fades in. Modal scales up from 0.95 with fade. Exit reverses.
+
+14. **Toast Notifications:** Slide in from the right. Auto-dismiss with progress bar. Stack multiple toasts with 8px gap.
+
+15. **Drag and Drop (Kanban, Timetable):** Dragged item lifts with shadow. Drop zone highlights. Smooth reorder animation. Placeholder shows insertion point.
+
+16. **Search/Command Palette:** Full overlay with blur backdrop. Results appear as you type with slight fade. Keyboard navigation with highlighted row.
+
+17. **Avatar Loading:** Blurred placeholder → sharp image fade transition.
+
+18. **Empty State Illustration:** SVG illustration with subtle floating animation (up-down 4px, 3s cycle).
+
+19. **Progress Steps (Multi-step forms):** Active step scales up slightly. Completed steps show checkmark with celebration micro-animation. Connector line fills with brand color.
+
+20. **Tab Switching:** Active tab indicator slides horizontally with spring physics. Content cross-fades.
+
+### 8.2 Responsive Breakpoints
+
+```
+Mobile:      < 640px    → Single column, bottom nav, full-width cards
+Tablet:      640-1024px → Collapsed sidebar, 2-column grids, stacked layouts
+Desktop:     1024-1440px → Full sidebar, 3-4 column grids, side-by-side panels
+Large:       > 1440px   → Centered content (max 1440px), larger cards, more breathing room
+```
+
+### 8.3 Accessibility Requirements
+
+- All interactive elements keyboard accessible
+- Focus rings visible (brand-500, 2px offset)
+- Color contrast ratio minimum 4.5:1 for text
+- Screen reader labels on all icons and interactive elements
+- Alt text on all images
+- Form fields properly labeled with aria attributes
+- Error messages programmatically associated with fields
+- Skip to content link
+- Reduced motion support (respect prefers-reduced-motion)
+- Minimum touch target 44x44px on mobile
+
+### 8.4 Empty, Loading, and Error State Standards
+
+**Every page and data-displaying component MUST have all three states:**
+
+**Loading State:**
+- Skeleton screen matching the exact layout of the loaded state
+- Shimmer animation (gradient sweep left to right)
+- Never show a centered spinner alone — always show layout structure
+- Minimum display time: 300ms (prevent flash of loading state)
+
+**Empty State:**
+- Centered in the content area
+- Custom SVG illustration (light, brand-colored, 120-160px)
+- Heading: "No [items] yet" in text-lg semibold
+- Description: One sentence explaining what this section does
+- CTA button: "Add First [Item]" or "Get Started"
+- Example empty states:
+  - Students: "Your student directory is empty. Start by adding your first student or importing from a file."
+  - Attendance: "No attendance recorded for today. Select a class to begin marking attendance."
+  - Invoices: "No invoices generated yet. Create a fee structure first, then generate invoices."
+
+**Error State:**
+- Red-tinted illustration or icon
+- "Something went wrong" heading
+- Brief description of what failed
+- "Try Again" button
+- "Contact Support" link for persistent errors
+- Log error details to console (not shown to user)
+
+---
+
+## PART 9 — PREMIUM DESIGN PATTERNS TO FOLLOW
+
+### 9.1 Dashboard Design (Study These)
+- **Stripe Dashboard:** Clean stat cards, clear hierarchy, excellent use of whitespace
+- **Linear App:** Beautiful keyboard-driven UX, smooth animations, command palette
+- **Notion:** Clean sidebar, nested navigation, flexible layouts
+- **Mercury Bank:** Financial dashboards, chart excellence, data density done right
+- **Vercel Dashboard:** Minimalist, premium feel, excellent loading states
+
+### 9.2 Data Table Patterns (Study These)
+- **Airtable:** Filter bar, sort options, group by, hide columns
+- **Linear Issues:** Clean rows, keyboard navigation, bulk actions, inline status change
+- **Notion Tables:** Configurable views, filter presets
+
+### 9.3 Form Patterns (Study These)
+- **Typeform:** Step-by-step wizard, one question at a time feel
+- **Stripe Checkout:** Inline validation, progress indication, clean layout
+- **Linear Create Issue:** Modal form, well-organized fields, smart defaults
+
+### 9.4 Navigation Patterns
+- **Sidebar:** Fixed position, scrollable, collapsible to icons
+- **Breadcrumbs:** Always visible, clickable hierarchy
+- **Tabs:** Horizontal tab bar within pages, underline indicator, smooth slide
+- **Command Palette:** Cmd+K, global search + actions
+
+---
+
+## PART 10 — CRITICAL IMPLEMENTATION RULES
+
+1. **Use mock data that looks 100% real.** No "John Doe" or "Test Student". Use realistic Arabic, Indian, Pakistani, British, Filipino names. Realistic Emirates IDs, phone numbers (+971), addresses in Dubai neighborhoods (Al Barsha, Jumeirah, Silicon Oasis, Marina, Downtown).
+
+2. **Every chart must animate on load.** No static charts appearing instantly. Lines draw, bars grow, numbers count up.
+
+3. **Every table must have search, filters, pagination, and export.** No table appears without these four features.
+
+4. **Every form must validate in real-time.** No "submit and see errors" pattern. Validate each field on blur, show inline errors immediately.
+
+5. **Navigation must feel instant.** Use skeleton loading, not blank white pages. Show the layout structure immediately while data loads.
+
+6. **Color must carry meaning.** Green = positive/active/present. Red = negative/overdue/absent. Amber = warning/pending/late. Blue = info/in-progress. Purple = brand accent.
+
+7. **Typography hierarchy must be immediately clear.** Page title (text-2xl bold) → Section title (text-lg semibold) → Card title (text-base semibold) → Body (text-sm normal) → Caption (text-xs gray-500).
+
+8. **Whitespace is a design element.** Never cram content. Use generous padding (24px card padding, 32px page padding). Let content breathe.
+
+9. **Every interactive element must have a hover state, focus state, active state, and disabled state.** No exceptions.
+
+10. **Dark mode is NOT required for MVP.** Focus on a perfect light theme first.
+
+11. **Sidebar must show the current school name and logo, current academic year, and current user avatar and role.**
+
+12. **Every page must have a page header with: breadcrumb, page title, and relevant action buttons (Add New, Export, Filter).**
+
+13. **Toast notifications for every action:** "Student added successfully ✓", "Attendance saved ✓", "Payment recorded ✓"
+
+14. **Confirmation dialogs for destructive actions:** "Are you sure you want to deactivate this student? This action can be reversed by an administrator."
+
+15. **The login page must be stunning.** Full-screen split layout. Left: school image with gradient overlay and a powerful tagline. Right: clean login form with the school group logo.
+
+16. **Financial numbers must use proper formatting.** AED 45,250.00 (with currency code), percentages with one decimal (94.7%), counts with comma separators (3,200).
+
+17. **Dates in DD MMM YYYY format** (21 Oct 2026) for readability. Times in 12-hour format (8:30 AM).
+
+18. **The product must work on iPad in landscape orientation** — this is how many principals and teachers will use it.
+
+19. **Build a notification bell that actually shows realistic notifications** with timestamps ("5 minutes ago", "2 hours ago", "Yesterday").
+
+20. **The command palette (Cmd+K) must be implemented** with categories: Pages, Students, Staff, Actions, Recent.
+
+---
+
+## PART 11 — DELIVERABLE CHECKLIST
+
+The final application must include these fully functional pages with real demo data:
+
+### Authentication (2 pages)
+- [ ] Login page (with school branding)
+- [ ] Forgot password page
+
+### Dashboards (5 pages)
+- [ ] Super Admin dashboard
+- [ ] Principal dashboard
+- [ ] Teacher dashboard
+- [ ] Parent portal dashboard
+- [ ] Student portal dashboard
+
+### Students (8 pages)
+- [ ] Student directory (with search, filters, table/card view)
+- [ ] Student 360° profile (with all tabs)
+- [ ] Add new student wizard (7-step form)
+- [ ] Student edit page
+- [ ] Promotion management
+- [ ] Alumni list
+- [ ] Admission enquiry form
+- [ ] Admissions pipeline (Kanban board)
+
+### Staff (6 pages)
+- [ ] Staff directory
+- [ ] Staff profile page
+- [ ] Add new staff form
+- [ ] Leave management (request + approve)
+- [ ] Staff attendance
+- [ ] Substitute management
+
+### Academics (7 pages)
+- [ ] Subject management
+- [ ] Grade and section management
+- [ ] Visual timetable builder
+- [ ] Timetable view (class/teacher/room toggle)
+- [ ] Lesson plan list + create
+- [ ] Assignment list + create
+- [ ] Assignment detail with submissions
+
+### Exams (5 pages)
+- [ ] Exam schedule (calendar view)
+- [ ] Grade book (mark entry)
+- [ ] Report card view
+- [ ] Assessment type configuration
+- [ ] Exam analytics dashboard
+
+### Attendance (4 pages)
+- [ ] Daily attendance marking interface
+- [ ] Attendance dashboard with heatmap
+- [ ] Attendance reports
+- [ ] Late arrival log
+
+### Finance (6 pages)
+- [ ] Fee structure configuration
+- [ ] Fee collection / payment recording
+- [ ] Invoice list + detail + PDF preview
+- [ ] Scholarship management
+- [ ] Finance dashboard with charts
+- [ ] Outstanding fees / aging report
+
+### Transport (4 pages)
+- [ ] Route management with map
+- [ ] Vehicle fleet
+- [ ] Student-route assignments
+- [ ] Transport dashboard
+
+### Communication (6 pages)
+- [ ] Announcements list + create
+- [ ] Messaging inbox + thread
+- [ ] Circular management
+- [ ] Event management
+- [ ] PTM scheduling
+- [ ] Bulk communication
+
+### Safeguarding (4 pages)
+- [ ] Incident list + reporting form
+- [ ] Incident detail / investigation
+- [ ] Behavior management
+- [ ] Wellbeing tracker
+
+### Health (3 pages)
+- [ ] Clinic visit log
+- [ ] Student medical profile
+- [ ] Medication management
+
+### Reports (4 pages)
+- [ ] Academic reports dashboard
+- [ ] Operational reports
+- [ ] KHDA compliance reports
+- [ ] Custom report builder
+
+### Configuration (6 pages)
+- [ ] School profile settings
+- [ ] Academic year management
+- [ ] User management (list + create)
+- [ ] Role & permission matrix
+- [ ] Notification rules
+- [ ] Audit log viewer
+
+### Global Components
+- [ ] Command palette (Cmd+K)
+- [ ] Notification center (bell dropdown)
+- [ ] School selector (multi-tenant switch)
+- [ ] Global search
+- [ ] User profile menu
+- [ ] Breadcrumb navigation
+- [ ] Toast notification system
+- [ ] Confirmation dialog system
+- [ ] 404 page
+- [ ] Maintenance page
+
+**TOTAL: ~70 fully designed and functional pages + global components**
+
+---
+
+## FINAL MANDATE
+
+Build this as if you are presenting it to a billionaire school group owner in Dubai who has seen every school management system on the market and found them all lacking. This MVP must make them say: "This is the future of school management."
+
+Every pixel matters. Every animation matters. Every data point must look real. Every workflow must feel complete. Every dashboard must tell a story. Every interaction must feel premium.
+
+Do not build a prototype. Build a product demo that looks and feels production-ready.
+
+This is not a school admin panel. This is an intelligent, beautiful, enterprise-grade education ecosystem.
+
+Build it like the world is watching. Because it is.
